@@ -17,7 +17,7 @@
           <td>{{ pais.Idioma }}</td>
           <td>
             <button class="btn btn-secondary btn-sm">Editar</button>
-            <button class="btn btn-danger btn-sm" v-on:click="eliminarFila">Eliminar</button>
+            <button class="btn btn-danger btn-sm" v-on:click="eliminarFila(index)">Eliminar</button>
           </td>
         </tr>
       </tbody>
@@ -41,11 +41,8 @@
     },
 
     methods: {
-      eliminarFila(event) {
-        const clickedRow = event.target.parentElement.parentElement
-        if(event) {
-          clickedRow.remove()
-        }
+      eliminarFila(index) {
+        this.paises.splice(index, 1);
       }
     },
   };
