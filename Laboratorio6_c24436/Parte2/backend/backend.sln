@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "backend-lab", ".\backend-lab\backend-lab.csproj", "{6E62801D-B0EA-E7CF-E996-AE137681C285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIAutomationTests", ".\UIAutomationTests\UIAutomationTests.csproj", "{AC21BB39-C844-482B-9F22-F822F53961F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E62801D-B0EA-E7CF-E996-AE137681C285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E62801D-B0EA-E7CF-E996-AE137681C285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E62801D-B0EA-E7CF-E996-AE137681C285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E62801D-B0EA-E7CF-E996-AE137681C285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC21BB39-C844-482B-9F22-F822F53961F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC21BB39-C844-482B-9F22-F822F53961F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC21BB39-C844-482B-9F22-F822F53961F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC21BB39-C844-482B-9F22-F822F53961F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB026DE7-F83D-41A7-9F16-0915082AE919}
+	EndGlobalSection
+EndGlobal

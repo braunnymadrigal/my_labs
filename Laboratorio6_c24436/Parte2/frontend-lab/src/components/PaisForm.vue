@@ -29,6 +29,9 @@
           </button>
         </div>
       </form>
+      <div v-if="mostrarMensajeConfirmacion" id="toast">
+        País creado con éxito. 
+      </div>
     </div>
   </div>
 </template>
@@ -39,21 +42,26 @@
     data() {
       return {
         datosFormulario: { nombre: "", continente: "", idioma: ""},
+        mostrarMensajeConfirmacion: false,
       };
     },
     methods: {
       guardarPais() {
+        this.mostarMensajeConfirmacion = false;
         console.log("Datos a guardar:", this.datosFormulario);
         axios
           .post("https://localhost:7110/api/Paises", {nombre: this.datosFormulario.nombre, continente: this.datosFormulario.continente, idioma: this.datosFormulario.idioma})
           .then(
-            function (response) {
+            response => {
+              this.mostrarMensajeConfirmacion = true;
               console.log(response);
-              window.location.href = "/";
+              setTimeout(() => {
+                window.location.href = "/";
+              }, 2000);
             }
           )
           .catch(
-            function (error) {
+            error => {
               console.log(error);
             }
           )
