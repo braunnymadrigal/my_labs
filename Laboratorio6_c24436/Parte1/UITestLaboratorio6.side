@@ -1,0 +1,261 @@
+{
+  "id": "c744b141-2556-407d-b498-2a254cc6020c",
+  "version": "2.0",
+  "name": "UITestLaboratorio6",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "7bd9ed33-b83b-45d2-8167-d28de4238914",
+    "name": "PruebaElaborada",
+    "commands": [{
+      "id": "f0b221f7-2e42-493a-81df-2a3160173c39",
+      "comment": "Abrimos la página principal de proyecto.",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4d2dfa6a-cfb4-4fc9-8318-fc41f8192645",
+      "comment": "Variable que almacena el título de todas las páginas en este proyecto.",
+      "command": "store",
+      "target": "frontend-lab",
+      "targets": [],
+      "value": "varTitle"
+    }, {
+      "id": "c8f78fc3-c17f-474b-a2f0-ae09c4e4e940",
+      "comment": "Almacena el nombre original del primer país en la lista.",
+      "command": "storeText",
+      "target": "css=tr:nth-child(1) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/table/tbody/tr/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Costa Rica')]", "xpath:innerText"]
+      ],
+      "value": "varOriginalFirstCountryName"
+    }, {
+      "id": "6821d602-70fc-4292-a669-00d25e9b82ba",
+      "comment": "Almacena el nombre original del segundo país en la lista.",
+      "command": "storeText",
+      "target": "css=tr:nth-child(2) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(2) > td:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/table/tbody/tr[2]/td", "xpath:idRelative"],
+        ["xpath=//tr[2]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Argentina')]", "xpath:innerText"]
+      ],
+      "value": "varOriginalSecondCountryName"
+    }, {
+      "id": "ce973cec-cdc8-43cd-9eef-3abcb87e16ee",
+      "comment": "Variable que almacena el título del form para crear país.",
+      "command": "store",
+      "target": "Formulario de creación de países",
+      "targets": [],
+      "value": "varFormTitle"
+    }, {
+      "id": "421ef18a-d486-47ca-b692-b33ad767a959",
+      "comment": "Variable que almacena un nombre para usar en el formulario de crear país.",
+      "command": "store",
+      "target": "NombrePaís",
+      "targets": [],
+      "value": "varCountryName"
+    }, {
+      "id": "3b2cdef4-1c3e-4c4c-a4c9-b35f6d573425",
+      "comment": "Verificamos que el título de la página principal sea el asignado en la variable ${varTitle}.",
+      "command": "assertTitle",
+      "target": "${varTitle}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b77229e8-f989-4e09-b24c-d4287681d4df",
+      "comment": "Hacemos click en el botón Agregar país.",
+      "command": "click",
+      "target": "css=.btn-outline-secondary",
+      "targets": [
+        ["css=.btn-outline-secondary", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/div/a/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Agregar país')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c53d3a45-193b-4c7d-bc34-6344f848d2e8",
+      "comment": "Verificamos que el título de la página de crear país sea el asignado en la variable ${varTitle}.",
+      "command": "assertTitle",
+      "target": "${varTitle}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "689b265f-4763-44bf-93e4-ecbf17ce80c3",
+      "comment": "Verificamos que el título del formulario sea el correcto",
+      "command": "assertText",
+      "target": "css=.text-center",
+      "targets": [
+        ["css=.text-center", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Formulario de creación de países')]", "xpath:innerText"]
+      ],
+      "value": "${varFormTitle}"
+    }, {
+      "id": "8d4c6144-809e-4c5f-ba55-15994f7fb65c",
+      "comment": "Verificamos que el primer campo del formulario sea editable.",
+      "command": "assertEditable",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b31ef652-a5a2-4c3c-acc5-869fdf520038",
+      "comment": "Verificamos que el segundo campo del formulario sea editable.",
+      "command": "assertEditable",
+      "target": "id=continente",
+      "targets": [
+        ["id=continente", "id"],
+        ["css=#continente", "css:finder"],
+        ["xpath=//select[@id='continente']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div[2]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "27f0f1bf-5d32-47e6-982b-278ceee5d37f",
+      "comment": "Verificamos que el tercer campo del formulario sea editable.",
+      "command": "assertEditable",
+      "target": "id=idioma",
+      "targets": [
+        ["id=idioma", "id"],
+        ["css=#idioma", "css:finder"],
+        ["xpath=//input[@id='idioma']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5984eb46-ef41-4001-b6bd-44953f1f170a",
+      "comment": "Hacemos click en el botón Guardar del formulario.",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Guardar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7faaf11-3778-4595-a41b-91f1306b1694",
+      "comment": "Verificamos que el primer campo del formulario devuelve invalido.",
+      "command": "assertElementPresent",
+      "target": "css=input#name:invalid",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca6ffe3f-9a9f-4c12-ad00-7977687d1295",
+      "comment": "Escribimos en el primer campo del formulario el valor almacenado en ${varCountryName}.",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${varCountryName}"
+    }, {
+      "id": "dd28b331-054d-4f16-b6ec-1cfb96ad1d13",
+      "comment": "Hacemos click en el botón Guardar del formulario.",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Guardar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5cc4aa51-8549-44bc-986b-13210d0821eb",
+      "comment": "Verificamos que el primer campo del formulario no devuelve invalido.",
+      "command": "assertElementNotPresent",
+      "target": "css=input#name:invalid",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8646209e-2cfc-48bf-b157-0d28ce227d29",
+      "comment": "Volvemos a abrir la página principal de proyecto.",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f6c9be51-4689-4018-ae49-ec60a54abd7b",
+      "comment": "Almacena el nombre actual del primer país en la lista.",
+      "command": "storeText",
+      "target": "css=tr:nth-child(1) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/table/tbody/tr/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Costa Rica')]", "xpath:innerText"]
+      ],
+      "value": "varCurrentFirstCountryName"
+    }, {
+      "id": "a4186c5f-460c-4bf6-8e4f-589f18a27329",
+      "comment": "Comprueba que el actual primer país sea igual al primer país que había cuando se entró a la página.",
+      "command": "assert",
+      "target": "varCurrentFirstCountryName",
+      "targets": [],
+      "value": "${varOriginalFirstCountryName}"
+    }, {
+      "id": "136ff937-6ae1-41f6-8566-2692f20fb6cb",
+      "comment": "Elimina el primer país de la lista.",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .btn-danger",
+      "targets": [
+        ["css=tr:nth-child(1) .btn-danger", "css:finder"],
+        ["xpath=//div[@id='app']/div/table/tbody/tr/td[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Eliminar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5eb5a605-1727-4fed-a63c-78815cc11e53",
+      "comment": "Almacena el nombre actual del primer país en la lista.",
+      "command": "storeText",
+      "target": "css=tr:nth-child(1) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/table/tbody/tr/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Costa Rica')]", "xpath:innerText"]
+      ],
+      "value": "varCurrentFirstCountryName"
+    }, {
+      "id": "4168b1c7-5927-439d-89f1-4bccdb1c5b9f",
+      "comment": "Comprueba que el actual primer país sea igual al segundo país que había cuando se entró a la página.",
+      "command": "assert",
+      "target": "varCurrentFirstCountryName",
+      "targets": [],
+      "value": "${varOriginalSecondCountryName}"
+    }]
+  }],
+  "suites": [{
+    "id": "df1ff79b-382b-44f4-b041-4253c673fc10",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["7bd9ed33-b83b-45d2-8167-d28de4238914"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
