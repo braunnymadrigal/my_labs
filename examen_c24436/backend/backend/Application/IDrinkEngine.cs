@@ -4,6 +4,6 @@ namespace backend.Application
 {
     public interface IDrinkEngine
     {
-        List<DrinkModel> getDrinks();
+        List<ItemModel> getDrinks();
     }
 }

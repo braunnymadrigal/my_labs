@@ -4,12 +4,12 @@ namespace backend.Infraestructure
 {
     public class DrinkRepository : IDrinkRepository
     {
-        public List<DrinkModel> getDrinks()
+        public List<ItemModel> getDrinks()
         {
-            var drinks = new List<DrinkModel>();
+            var drinks = new List<ItemModel>();
             foreach (var entry in Database.Database.drinks)
             {
-                var drink = new DrinkModel
+                var drink = new ItemModel
                 {
                     name = entry.Key,
                     quantity = entry.Value.Item1,

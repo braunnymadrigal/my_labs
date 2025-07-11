@@ -1,8 +1,8 @@
 ﻿using backend.Domain;
 
-namespace backend.Infraestructure
+namespace backend.Application
 {
-    public interface IDrinkRepository
+    public interface IVendingMachine
     {
         List<ItemModel> getDrinks();
     }

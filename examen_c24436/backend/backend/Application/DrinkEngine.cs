@@ -12,7 +12,7 @@ namespace backend.Application
             _drinkRepository = drinkRepository;
         }
 
-        public List<DrinkModel> getDrinks()
+        public List<ItemModel> getDrinks()
         {
             var drinks = _drinkRepository.getDrinks();
             return drinks;
