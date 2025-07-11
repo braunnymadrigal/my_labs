@@ -5,7 +5,7 @@ namespace backend.Application
 {
     public class DrinkEngine : IDrinkEngine
     {
-        private IDrinkRepository _drinkRepository;
+        private readonly IDrinkRepository _drinkRepository;
 
         public DrinkEngine(IDrinkRepository drinkRepository)
         {

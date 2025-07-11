@@ -1,4 +1,5 @@
 ﻿using backend.Domain;
+using System.Diagnostics;
 
 namespace backend.Application
 {
@@ -14,7 +15,14 @@ namespace backend.Application
         public List<ItemModel> getItems()
         {
             var items = new List<ItemModel>();
-            items.AddRange(_drinkEngine.getDrinks());
+            try
+            {
+                items.AddRange(_drinkEngine.getDrinks());
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
             return items;
         }
     }
