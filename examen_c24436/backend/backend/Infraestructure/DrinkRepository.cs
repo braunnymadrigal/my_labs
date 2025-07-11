@@ -15,6 +15,7 @@ namespace backend.Infraestructure
                     quantity = entry.Value.Item1,
                     price = entry.Value.Item2,
                 };
+                drinks.Add(drink);
             }
             return drinks;
         }
