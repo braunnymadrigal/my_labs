@@ -2,7 +2,7 @@
 
 namespace backend.Domain
 {
-    public class DrinksModel
+    public class DrinkModel
     {
         [Required]
         public required string name { get; set; }
