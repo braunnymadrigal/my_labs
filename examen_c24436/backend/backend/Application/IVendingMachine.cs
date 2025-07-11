@@ -4,6 +4,6 @@ namespace backend.Application
 {
     public interface IVendingMachine
     {
-        List<ItemModel> getDrinks();
+        List<ItemModel> getItems();
     }
 }
