@@ -15,6 +15,17 @@
       @addDrinks="addDrinks"
     />
 
+    <SelfCheckout
+      :currentDrinks="currentDrinks"
+      :currentMoney="currentMoney"
+      :errorMessages="errorMessages"
+      :cashSymbol="cashSymbol"
+      :successMessages="successMessages"
+      @outputMessage="outputMessage"
+      @resetPurchase="resetPurchase"
+      @handleSuccessfulPayment="handleSuccessfulPayment"
+    />
+
     <OutputPanel
       :informationMessage="informationMessage"
       :cashSymbol="cashSymbol"
@@ -27,12 +38,14 @@
 <script>
   import DrinksList from './DrinksList.vue';
   import DrinksAdder from './DrinksAdder.vue';
+  import SelfCheckout from './SelfCheckout.vue';
   import OutputPanel from './OutputPanel.vue';
 
   export default {
     components: {
       DrinksList,
       DrinksAdder,
+      SelfCheckout,
       OutputPanel,
     },
 
