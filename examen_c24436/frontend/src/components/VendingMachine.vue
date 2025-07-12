@@ -15,6 +15,13 @@
       @addDrinks="addDrinks"
     />
 
+    <MoneyAdder
+      :cashSymbol="cashSymbol"
+      :errorMessages="errorMessages"
+      @outputMessage="outputMessage"
+      @addMoney="addMoney"
+    />
+
     <SelfCheckout
       :currentDrinks="currentDrinks"
       :currentMoney="currentMoney"
@@ -38,6 +45,7 @@
 <script>
   import DrinksList from './DrinksList.vue';
   import DrinksAdder from './DrinksAdder.vue';
+  import MoneyAdder from './MoneyAdder.vue';
   import SelfCheckout from './SelfCheckout.vue';
   import OutputPanel from './OutputPanel.vue';
 
@@ -45,6 +53,7 @@
     components: {
       DrinksList,
       DrinksAdder,
+      MoneyAdder,
       SelfCheckout,
       OutputPanel,
     },
@@ -145,6 +154,25 @@
             repeatedDrink.quantity += selectedDrink.quantity;
           }
           this.outputMessage(this.successMessages.addingDrinks);
+        } catch {
+          this.outputMessage(this.errorMessages.unknown.message);
+        }
+      },
+
+      addMoney(selectedMoney) {
+        try {
+          let repeatedMoney = this.currentMoney.find((money) => money.type === selectedMoney.type);
+          if (repeatedMoney === undefined) {
+            this.currentMoney.push(
+              {
+                type: selectedMoney.type,
+                quantity: selectedMoney.quantity,
+              }
+            );
+          } else {
+            repeatedMoney.quantity += selectedMoney.quantity;
+          }
+          this.outputMessage(this.successMessages.addingMoney);
         } catch {
           this.outputMessage(this.errorMessages.unknown.message);
         }
