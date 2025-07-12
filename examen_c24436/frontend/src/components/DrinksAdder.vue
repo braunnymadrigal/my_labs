@@ -38,6 +38,42 @@
 </template>
 
 <script>
+  export default {
+    props: ['totalDrinks', 'currentDrinks', 'errorMessages'],
+
+    data() {
+      return {
+        selectedDrink: { name: "", quantity: 1 },
+      };
+    },
+
+    methods: {
+      checkSelectedDrink() {
+        try {
+          let totalDrink = this.totalDrinks.find((drink) => drink.name === this.selectedDrink.name);
+          let currentDrink = this.currentDrinks.find((drink) => drink.name === this.selectedDrink.name);
+          if (totalDrink === undefined) {
+            throw (this.errorMessages.drinkName);
+          }
+          let currentDrinkQuantity = (currentDrink === undefined) ? 0 : currentDrink.quantity;
+          let totalDrinkStock = totalDrink.stock;
+          if (currentDrinkQuantity + this.selectedDrink.quantity > totalDrinkStock) {
+            throw (this.errorMessages.aboveDrinkQuantity);
+          }
+          if (this.selectedDrink.quantity < 1) {
+            throw (this.errorMessages.belowDrinkQuantity);
+          }
+          this.$emit('addDrinks', this.selectedDrink);
+        } catch(error) {
+          if (error.expected) {
+            this.$emit('outputMessage', error.message);
+          } else {
+            this.$emit('outputMessage', this.errorMessages.unknown.message);
+          }
+        }
+      },
+    },
+  };
 </script>
 
 <style>
