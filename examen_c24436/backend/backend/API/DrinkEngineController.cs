@@ -20,8 +20,8 @@ namespace backend.API
         [HttpGet]
         public IActionResult GetDrinks()
         {
-            var items = _drinkEngine.getDrinks();
-            return Ok(items);
+            var drinks = _drinkEngine.getDrinks();
+            return Ok(drinks);
         }
     }
 }

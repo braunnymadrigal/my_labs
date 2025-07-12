@@ -24,6 +24,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IDrinkEngineRepository, DrinkEngineRepository>();
 builder.Services.AddScoped<IDrinkEngine, DrinkEngine>();
+
+builder.Services.AddScoped<IMoneyEngineRepository, MoneyEngineRepository>();
+builder.Services.AddScoped<IMoneyEngine, MoneyEngine>();
+
 builder.Services.AddScoped<IVendingMachine, VendingMachine>();
 
 var app = builder.Build();
