@@ -7,6 +7,14 @@
       :cashSymbol="cashSymbol"
     />
 
+    <DrinksAdder
+      :totalDrinks="totalDrinks"
+      :currentDrinks="currentDrinks"
+      :errorMessages="errorMessages"
+      @outputMessage="outputMessage"
+      @addDrinks="addDrinks"
+    />
+
     <OutputPanel
       :informationMessage="informationMessage"
       :cashSymbol="cashSymbol"
@@ -18,11 +26,13 @@
 
 <script>
   import DrinksList from './DrinksList.vue';
+  import DrinksAdder from './DrinksAdder.vue';
   import OutputPanel from './OutputPanel.vue';
 
   export default {
     components: {
       DrinksList,
+      DrinksAdder,
       OutputPanel,
     },
 
@@ -104,6 +114,27 @@
       outputChange(change) {
         this.showChange = true;
         this.informationMessage = change;
+      },
+
+      addDrinks(selectedDrink) {
+        try {
+          let drink = this.totalDrinks.find((drink) => drink.name === selectedDrink.name);
+          let repeatedDrink = this.currentDrinks.find((drink) => drink.name === selectedDrink.name);
+          if (repeatedDrink === undefined) {
+            this.currentDrinks.push(
+              {
+                name: drink.name, 
+                price: drink.price, 
+                quantity: selectedDrink.quantity,
+              }
+            );
+          } else {
+            repeatedDrink.quantity += selectedDrink.quantity;
+          }
+          this.outputMessage(this.successMessages.addingDrinks);
+        } catch {
+          this.outputMessage(this.errorMessages.unknown.message);
+        }
       },
     },
 
