@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IDrinkRepository, DrinkRepository>();
+builder.Services.AddScoped<IDrinkEngineRepository, DrinkEngineRepository>();
 builder.Services.AddScoped<IDrinkEngine, DrinkEngine>();
 builder.Services.AddScoped<IVendingMachine, VendingMachine>();
 

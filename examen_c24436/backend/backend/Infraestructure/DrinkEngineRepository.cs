@@ -2,17 +2,17 @@
 
 namespace backend.Infraestructure
 {
-    public class DrinkRepository : IDrinkRepository
+    public class DrinkEngineRepository : IDrinkEngineRepository
     {
-        public List<ItemModel> getDrinks()
+        public List<DrinkModel> getDrinks()
         {
-            var drinks = new List<ItemModel>();
+            var drinks = new List<DrinkModel>();
             foreach (var entry in Database.Database.drinks)
             {
-                var drink = new ItemModel
+                var drink = new DrinkModel
                 {
                     name = entry.Key,
-                    quantity = entry.Value.Item1,
+                    stock = entry.Value.Item1,
                     price = entry.Value.Item2,
                 };
                 drinks.Add(drink);

@@ -15,13 +15,5 @@ namespace backend.API
         {
             _vendingMachine = vendingMachine;
         }
-
-        [AllowAnonymous]
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var items = _vendingMachine.getItems();
-            return Ok(items);
-        }
     }
 }

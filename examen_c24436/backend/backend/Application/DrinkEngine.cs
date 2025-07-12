@@ -5,14 +5,14 @@ namespace backend.Application
 {
     public class DrinkEngine : IDrinkEngine
     {
-        private readonly IDrinkRepository _drinkRepository;
+        private readonly IDrinkEngineRepository _drinkRepository;
 
-        public DrinkEngine(IDrinkRepository drinkRepository)
+        public DrinkEngine(IDrinkEngineRepository drinkRepository)
         {
             _drinkRepository = drinkRepository;
         }
 
-        public List<ItemModel> getDrinks()
+        public List<DrinkModel> getDrinks()
         {
             var drinks = _drinkRepository.getDrinks();
             return drinks;
