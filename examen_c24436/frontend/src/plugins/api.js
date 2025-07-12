@@ -11,8 +11,8 @@ export default {
         return axios.post(`${apiBaseURL}/Company`, companyData);
       },
 
-      getProfile() {
-        return axios.get(`${apiBaseURL}/Profile`);
+      getDrinks() {
+        return axios.get(`${apiBaseURL}/DrinkEngine`);
       },
     };
   },

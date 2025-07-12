@@ -77,13 +77,13 @@
     },
 
     methods: {
-      getDrinks() {
-        this.totalDrinks = [
-          { name: "coca cola", price: 800, stock: 10 },
-          { name: "pepsi", price: 750, stock: 8 },
-          { name: "fanta", price: 950, stock: 10 },
-          { name: "sprite", price: 975, stock: 15 },
-        ];
+      async getDrinks() {
+        try {
+          const response = await this.$api.getDrinks();
+          this.totalDrinks = response.data;
+        } catch {
+          console.log("error");
+        }
       },
     },
 
