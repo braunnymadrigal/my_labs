@@ -7,15 +7,23 @@
       :cashSymbol="cashSymbol"
     />
 
+    <OutputPanel
+      :informationMessage="informationMessage"
+      :cashSymbol="cashSymbol"
+      :showChange="showChange"
+      :successMessages="successMessages"
+    />
   </div>
 </template>
 
 <script>
   import DrinksList from './DrinksList.vue';
+  import OutputPanel from './OutputPanel.vue';
 
   export default {
     components: {
       DrinksList,
+      OutputPanel,
     },
 
     data() {
@@ -69,6 +77,7 @@
 
         successMessages: {
           addingDrinks: "Drinks have been successfully added!",
+          obtainingDrinks: "Drinks have been successfully obtained!",
           addingMoney: "Money has been successfully added!",
           finalizingPurchase: "The purchase has been successfully finalized!",
           resettingPurchase: "The purchase has been successfully reset!",
@@ -81,9 +90,20 @@
         try {
           const response = await this.$api.getDrinks();
           this.totalDrinks = response.data;
+          this.outputMessage(this.successMessages.obtainingDrinks);
         } catch {
-          console.log("error");
+          this.outputMessage(this.errorMessages.unknown.message);
         }
+      },
+
+      outputMessage(message) {
+        this.showChange = false;
+        this.informationMessage = message;
+      },
+
+      outputChange(change) {
+        this.showChange = true;
+        this.informationMessage = change;
       },
     },
 
