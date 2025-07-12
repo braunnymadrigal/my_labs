@@ -38,6 +38,45 @@
 </template>
 
 <script>
+  export default {
+    props: ['cashSymbol', 'errorMessages'],
+
+    data() {
+      return {
+        supportedMoney: [],
+
+        selectedMoney: { type: 0, quantity: 1 },
+      };
+    },
+
+    methods: {
+      getSupportedMoney() {
+        this.supportedMoney = [25, 50, 100, 500, 1000,];
+      },
+
+      checkSelectedMoney() {
+        try {
+          if (!this.supportedMoney.includes(this.selectedMoney.type)) {
+            throw (this.errorMessages.moneyType);
+          }
+          if (this.selectedMoney.quantity < 1) {
+            throw (this.errorMessages.belowMoneyQuantity);
+          }
+          this.$emit('addMoney', this.selectedMoney);
+        } catch(error) {
+          if (error.expected) {
+            this.$emit('outputMessage', error.message)
+          } else {
+            this.$emit('outputMessage', this.errorMessages.unknown.message);
+          }
+        }
+      },
+    },
+
+    mounted() {
+      this.getSupportedMoney();
+    },
+  };
 </script>
 
 <style>
