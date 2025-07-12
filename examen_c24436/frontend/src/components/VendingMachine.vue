@@ -1,0 +1,89 @@
+<template>
+  <div class="container-xxl border border-black border-5 my-5">
+    <h1 class="display-1 text-center mb-5">Braunny's Vending Machine</h1>
+
+  </div>
+</template>
+
+<script>
+  export default {
+    components: {
+    },
+
+    data() {
+      return {
+        totalDrinks: [],
+
+        cashSymbol:"₡",
+
+        currentDrinks: [],
+
+        currentMoney: [],
+      
+        informationMessage: "",
+
+        showChange: false,
+
+        errorMessages: {
+          unknown: {
+            message: "Error: Something unexpected happened. Please contact support.",
+            expected: false,
+          },
+          aboveDrinkQuantity: {
+            message: "Error: The quantity of drinks must not exceed the available stock.",
+            expected: true,
+          },
+          belowDrinkQuantity: {
+            message: "Error: The quantity of drinks must be greater than zero.",
+            expected: true,
+          },
+          drinkName: {
+            message: "Error: The selected drink does not exist.",
+            expected: true,
+          },
+          moneyType: {
+            message: "Error: The selected type of money is not supported.",
+            expected: true,
+          },
+          belowMoneyQuantity: {
+            message: "Error: The amount of money must be greater than zero.",
+            expected: true,
+          },
+          moneyBelowCost: {
+            message: "Error: Please insert enough money to cover the total cost.",
+            expected: true,
+          },
+          failedPurchase: {
+            message: "Error: Purchase failed. The system is currently out of service.",
+            expected: true,
+          },
+        },
+
+        successMessages: {
+          addingDrinks: "Drinks have been successfully added!",
+          addingMoney: "Money has been successfully added!",
+          finalizingPurchase: "The purchase has been successfully finalized!",
+          resettingPurchase: "The purchase has been successfully reset!",
+        },
+      };
+    },
+
+    methods: {
+      getDrinks() {
+        this.totalDrinks = [
+          { name: "coca cola", price: 800, stock: 10 },
+          { name: "pepsi", price: 750, stock: 8 },
+          { name: "fanta", price: 950, stock: 10 },
+          { name: "sprite", price: 975, stock: 15 },
+        ];
+      },
+    },
+
+    mounted() {
+      this.getDrinks();
+    },
+  };
+</script>
+
+<style>
+</style>
