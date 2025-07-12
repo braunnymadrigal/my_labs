@@ -2,12 +2,20 @@
   <div class="container-xxl border border-black border-5 my-5">
     <h1 class="display-1 text-center mb-5">Braunny's Vending Machine</h1>
 
+    <DrinksList 
+      :drinks="totalDrinks" 
+      :cashSymbol="cashSymbol"
+    />
+
   </div>
 </template>
 
 <script>
+  import DrinksList from './DrinksList.vue';
+
   export default {
     components: {
+      DrinksList,
     },
 
     data() {
