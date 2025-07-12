@@ -63,6 +63,39 @@
 </template>
 
 <script>
+  export default {
+    props: ['currentDrinks', 'currentMoney', 'errorMessages', 'cashSymbol', 'successMessages'],
+
+    data() {
+      return {
+        drinksCost: 0,
+        moneyAmount: 0,
+      };
+    },
+
+    methods: {
+      pay() {
+        //
+      },
+
+      reset() {
+        //
+      },
+
+      getDrinksCost() {
+        try {
+          this.drinksCost = this.currentDrinks.reduce((sum, drink) => sum + drink.quantity * drink.price, 0);
+        } catch {
+          this.$emit('outputMessage', this.errorMessages.unknown.message);
+        }
+        return this.drinksCost;
+      },
+
+      getMoneyAmount() {
+        //
+      },
+    }
+  };
 </script>
 
 <style>
