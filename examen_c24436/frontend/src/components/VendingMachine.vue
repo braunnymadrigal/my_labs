@@ -78,7 +78,7 @@
             expected: false,
           },
           aboveDrinkQuantity: {
-            message: "Error: The quantity of drinks must not exceed the available stock.",
+            message: "Error: The quantity of drinks must not exceed the available quantity.",
             expected: true,
           },
           belowDrinkQuantity: {
@@ -109,7 +109,6 @@
 
         successMessages: {
           addingDrinks: "Drinks have been successfully added!",
-          obtainingDrinks: "Drinks have been successfully obtained!",
           addingMoney: "Money has been successfully added!",
           finalizingPurchase: "The purchase has been successfully finalized!",
           resettingPurchase: "The purchase has been successfully reset!",
@@ -122,7 +121,6 @@
         try {
           const response = await this.$api.getDrinks();
           this.totalDrinks = response.data;
-          this.outputMessage(this.successMessages.obtainingDrinks);
         } catch {
           this.outputMessage(this.errorMessages.unknown.message);
         }

@@ -74,7 +74,7 @@
     },
 
     methods: {
-      pay() {
+      async pay() {
         try {
           if (this.drinksCost === 0) {
             throw (this.errorMessages.belowDrinkQuantity);
@@ -82,7 +82,10 @@
           if (this.drinksCost > this.moneyAmount) {
             throw (this.errorMessages.moneyBelowCost);
           }
-          let change = /* call api */ { success: true, totalChange: 350, detailedChange: [ { type: 50, quantity: 1 }, { type: 100, quantity: 3 }, ] };
+          const requestPurchase = { drinks: this.currentDrinks, money: this.currentMoney }
+          const response = await this.$api.buyDrinks(requestPurchase);
+          const change = response.data;
+
           if (!change.success) {
             throw (this.errorMessages.failedPurchase);
           }
@@ -94,6 +97,7 @@
           } else {
             this.$emit('outputMessage', this.errorMessages.unknown.message);
           }
+          this.$emit('resetPurchase');
         }
       },
 

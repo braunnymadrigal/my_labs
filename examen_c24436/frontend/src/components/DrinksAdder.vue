@@ -56,8 +56,8 @@
             throw (this.errorMessages.drinkName);
           }
           let currentDrinkQuantity = (currentDrink === undefined) ? 0 : currentDrink.quantity;
-          let totalDrinkStock = totalDrink.stock;
-          if (currentDrinkQuantity + this.selectedDrink.quantity > totalDrinkStock) {
+          let totalDrinkQuantity = totalDrink.quantity;
+          if (currentDrinkQuantity + this.selectedDrink.quantity > totalDrinkQuantity) {
             throw (this.errorMessages.aboveDrinkQuantity);
           }
           if (this.selectedDrink.quantity < 1) {

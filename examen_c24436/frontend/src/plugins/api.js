@@ -7,8 +7,8 @@ export default {
     app.config.globalProperties.$apiBaseURL = apiBaseURL;
 
     app.config.globalProperties.$api = {
-      registerCompany(companyData) {
-        return axios.post(`${apiBaseURL}/Company`, companyData);
+      buyDrinks(requestPurchase) {
+        return axios.post(`${apiBaseURL}/VendingMachine`, requestPurchase);
       },
 
       getSupportedMoney() {
