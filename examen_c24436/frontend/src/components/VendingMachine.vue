@@ -177,6 +177,17 @@
           this.outputMessage(this.errorMessages.unknown.message);
         }
       },
+
+      resetPurchase() {
+        this.currentDrinks = [];
+        this.currentMoney = [];
+      },
+
+      handleSuccessfulPayment(change) {
+        this.resetPurchase();
+        this.getDrinks();
+        this.outputChange(change);
+      },
     },
 
     mounted() {
