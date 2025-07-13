@@ -14,7 +14,7 @@ namespace backend.Application
 
         public List<DrinkModel> getDrinks()
         {
-            var drinks = _drinkRepository.getDrinks();
+            var drinks = _drinkRepository.getDrinks().Where(drink => drink.quantity > 0).ToList(); ;
             return drinks;
         }
 

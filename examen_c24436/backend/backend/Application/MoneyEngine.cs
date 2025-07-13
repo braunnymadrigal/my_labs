@@ -20,7 +20,7 @@ namespace backend.Application
 
         public List<MoneyModel> getMoney()
         {
-            var money = _moneyEngineRepository.getMoney();
+            var money = _moneyEngineRepository.getMoney().Where(singleMoney => singleMoney.quantity > 0).ToList();
             return money;
         }
 
