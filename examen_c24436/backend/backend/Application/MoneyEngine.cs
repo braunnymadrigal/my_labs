@@ -1,4 +1,5 @@
-﻿using backend.Infraestructure;
+﻿using backend.Domain;
+using backend.Infraestructure;
 
 namespace backend.Application
 {
@@ -15,6 +16,17 @@ namespace backend.Application
         {
             var supportedMoney = _moneyEngineRepository.getSupportedMoney();
             return supportedMoney;
+        }
+
+        public List<MoneyModel> getMoney()
+        {
+            var money = _moneyEngineRepository.getMoney();
+            return money;
+        }
+
+        public void updateMoney(List<MoneyModel> money)
+        {
+            _moneyEngineRepository.updateMoney(money);
         }
     }
 }

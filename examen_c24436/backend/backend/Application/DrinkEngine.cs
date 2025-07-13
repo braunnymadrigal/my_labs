@@ -17,5 +17,10 @@ namespace backend.Application
             var drinks = _drinkRepository.getDrinks();
             return drinks;
         }
+
+        public void updateDrinks(List<DrinkModel> drinks)
+        {
+            _drinkRepository.updateDrinks(drinks);
+        }
     }
 }
