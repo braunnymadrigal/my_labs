@@ -11,6 +11,10 @@ export default {
         return axios.post(`${apiBaseURL}/Company`, companyData);
       },
 
+      getSupportedMoney() {
+        return axios.get(`${apiBaseURL}/MoneyEngine`);
+      },
+
       getDrinks() {
         return axios.get(`${apiBaseURL}/DrinkEngine`);
       },

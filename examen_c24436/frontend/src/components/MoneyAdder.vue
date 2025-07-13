@@ -50,8 +50,13 @@
     },
 
     methods: {
-      getSupportedMoney() {
-        this.supportedMoney = [25, 50, 100, 500, 1000,];
+      async getSupportedMoney() {
+        try {
+          const response = await this.$api.getSupportedMoney();
+          this.supportedMoney = response.data;
+        } catch {
+          this.$emit('outputMessage', this.errorMessages.unknown.message);
+        }
       },
 
       checkSelectedMoney() {
