@@ -12,12 +12,20 @@ namespace backend.Infraestructure
                 var drink = new DrinkModel
                 {
                     name = entry.Key,
-                    stock = entry.Value.Item1,
+                    quantity = entry.Value.Item1,
                     price = entry.Value.Item2,
                 };
                 drinks.Add(drink);
             }
             return drinks;
+        }
+
+        public void updateDrinks(List<DrinkModel> drinks)
+        {
+            foreach (var drink in drinks)
+            {
+                Database.Database.drinks[drink.name] = (drink.quantity, drink.price);
+            }
         }
     }
 }
