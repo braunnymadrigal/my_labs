@@ -75,11 +75,31 @@
 
     methods: {
       pay() {
-        //
+        try {
+          if (this.drinksCost === 0) {
+            throw (this.errorMessages.belowDrinkQuantity);
+          }
+          if (this.drinksCost > this.moneyAmount) {
+            throw (this.errorMessages.moneyBelowCost);
+          }
+          let change = /* call api */ { success: true, totalChange: 350, detailedChange: [ { type: 50, quantity: 1 }, { type: 100, quantity: 3 }, ] };
+          if (!change.success) {
+            throw (this.errorMessages.failedPurchase);
+          }
+          this.$emit('handleSuccessfulPayment', change);
+        }
+        catch (error) {
+          if (error.expected) {
+            this.$emit('outputMessage', error.message);
+          } else {
+            this.$emit('outputMessage', this.errorMessages.unknown.message);
+          }
+        }
       },
 
       reset() {
-        //
+        this.$emit('resetPurchase');
+        this.$emit('outputMessage', this.successMessages.resettingPurchase);
       },
 
       getDrinksCost() {
