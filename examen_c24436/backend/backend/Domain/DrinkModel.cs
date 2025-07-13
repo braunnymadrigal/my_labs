@@ -4,6 +4,6 @@
     {
         public required string name { get; set; }
         public required int price { get; set; }
-        public required int stock { get; set; }
+        public required int quantity { get; set; }
     }
 }
