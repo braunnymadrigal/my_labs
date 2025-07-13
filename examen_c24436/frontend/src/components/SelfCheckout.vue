@@ -92,7 +92,12 @@
       },
 
       getMoneyAmount() {
-        //
+        try {
+          this.moneyAmount = this.currentMoney.reduce((sum, money) => sum + money.quantity * money.type, 0);
+        } catch {
+          this.$emit('outputMessage', this.errorMessages.unknown.message);
+        }
+        return this.moneyAmount;
       },
     }
   };
