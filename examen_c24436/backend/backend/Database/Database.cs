@@ -3,7 +3,7 @@
     public static class Database
     {
         public static Dictionary<string, (int, int)> drinks { get; set; }
-        public static Dictionary<int, int> coins { get; set; }
+        public static Dictionary<int, int> money { get; set; }
         public static List<int> supportedMoney { get; set; }
 
         static Database()
@@ -15,7 +15,7 @@
                 { "fanta", (10, 950) },
                 { "sprite", (15, 975) }
             };
-            coins = new Dictionary<int, int>
+            money = new Dictionary<int, int>
             {
                 { 25, 25 },
                 { 50, 50 },
